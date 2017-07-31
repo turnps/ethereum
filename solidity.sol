@@ -2,13 +2,14 @@ pragma solidity ^0.4.0;
 contract TEST {
 
     uint public x;
-    address public addr;
+    address public admin;
     function TEST(){
-        addr = msg.sender;
+        admin = msg.sender;
     }
     mapping(uint => string) public mp;
     function setmp(){
         mp[123] = "hello mp";
+        if(msg.sender != admin) throw;
     }
     function setx(uint a, uint b) returns(uint){
         x = plus(a,b);
