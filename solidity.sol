@@ -2,6 +2,10 @@ pragma solidity ^0.4.0;
 contract TEST {
 
     uint public x;
+    address public addr;
+    function TEST(){
+        addr = msg.sender;
+    }
     mapping(uint => string) public mp;
     function setmp(){
         mp[123] = "hello mp";
